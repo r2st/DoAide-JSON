@@ -1,0 +1,16 @@
+[Unit]
+Description=DoAide JSON - Free Developer Tools
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/doaide-json
+ExecStart=/usr/bin/node /opt/doaide-json/node_modules/.bin/vite preview --host 172.18.0.1 --port 3059
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
